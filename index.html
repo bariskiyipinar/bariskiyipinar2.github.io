@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    
+<meta charset="utf-8"> 
+ <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" >
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    
+      <link rel="stylesheet" href="tasarim.css">
+        <script src="angular.min.js"></script>
+        <script src="angular-file-upload.js"></script>
+        <script src="controllers.js"></script>
+    </head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script>
+var myApp = angular.module('myApp', []);
+ 
+myApp.directive('fileModel', ['$parse', function ($parse) {
+return {
+restrict: 'A',
+link: function(scope, element, attrs) {
+var model = $parse(attrs.fileModel);
+var modelSetter = model.assign;
+ 
+element.bind('change', function(){
+scope.$apply(function(){
+modelSetter(scope, element[0].files); 
+});
+});
+}
+};
+}]);
+ 
+myApp.service('dosyaYukle', ['$http', function ($http) {
+this.uploadFileToUrl = function(dosyalar, yuklemeAdres){
+ 
+/*döngü ile seçilen dosyaları yukleme klasörüne tek tek yüklüyoruz.*/
+for (var i in dosyalar) 
+{
+var fdata = new FormData();
+fdata.append("file", dosyalar[i]); /*$_FILES['file'] olarak çağrılacak kısım*/
+console.log(dosyalar[i]);
+ 
+$http.post(yuklemeAdres, fdata, {
+transformRequest: angular.identity,
+headers: {'Content-Type': undefined}
+})
+ 
+.success(function(data){
+console.log(data);
+})
+ 
+.error(function(data){
+console.log(data);
+}); 
+} 
+}
+}]);
+//upload.php dosyasını oluşturmayı unutmayın.
+myApp.controller('myCtrl', ['$scope', 'dosyaYukle', function($scope, fileUpload){
+$scope.dosyaYukleyici = function(){
+var file = $scope.dosya;
+ 
+var yuklemeAdres = "upload.php";
+fileUpload.uploadFileToUrl(file, yuklemeAdres);
+};
+}]);
+ 
+</script>
+    
+    
+    
+    
+<script>
+ 
+var app = angular
+.module("persModul", [])
+.controller("persController", function ($scope) {
+ 
+var personeller=[
+{ "isim": "Yezdan","soyisim": "Erdurak","cinsiyet": "Erkek","maas": "3569" },
+{ "isim": "Elfiye","soyisim": "Şencin","cinsiyet": "Erkek","maas": "4143" },
+{ "isim": "Ezfer","soyisim": "Ovacık","cinsiyet": "Erkek","maas": "2705" },
+{ "isim": "Teberhun","soyisim": "Karadağ sazak","cinsiyet": "Kız","maas": "2337" },
+{ "isim": "Çağar","soyisim": "Alkan","cinsiyet": "Kız","maas": "1883" },
+{ "isim": "Mükafi","soyisim": "Düşer","cinsiyet": "Kız","maas": "3869" },
+{ "isim": "Süreha","soyisim": "Karakaya","cinsiyet": "Erkek","maas": "1796" },
+{ "isim": "Taberi","soyisim": "Abacılı","cinsiyet": "Kız","maas": "4054" },
+{ "isim": "Bala","soyisim": "Merkan","cinsiyet": "Erkek","maas": "2703" },
+{ "isim": "Nil","soyisim": "Aksaç","cinsiyet": "Erkek","maas": "3510" },
+{ "isim": "Ulualp","soyisim": "Seziş","cinsiyet": "Erkek","maas": "2688" },
+{ "isim": "Çağlar","soyisim": "Selçuk atay","cinsiyet": "Erkek","maas": "3524" },
+{ "isim": "Berkem","soyisim": "Erdoğan","cinsiyet": "Kız","maas": "2290" },
+{ "isim": "Özgünel","soyisim": "Demirtaş","cinsiyet": "Erkek","maas": "3193" },
+{ "isim": "Mübelliğ","soyisim": "Ölçer","cinsiyet": "Kız","maas": "3603" }
+ 
+];
+ 
+$scope.personeller = personeller;
+});
+ 
+</script>
+    
+
+<body ng-app="persModul">
+<div ng-controller="persController">
+<div>
+<input type="text" ng-model="arama.isim" placeholder="İsim Girin">
+<input type="text" ng-model="arama.cinsiyet" placeholder="Cinsiyet Girin">
+<input type="checkbox" ng-model="tamEslestir" >Tam Eşleştir
+</div>
+ 
+<table border=1>
+<thead>
+<tr>
+<th>İSİM</th>
+<th>SOYİSİM</th>
+<th>TARİH</th>
+<th>MAAŞ</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="personel in personeller |filter:arama:tamEslestir ">
+<td> {{ personel.isim }} </td>
+<td> {{ personel.soyisim }} </td>
+<td> {{ personel.cinsiyet }} </td>
+<td> {{ personel.maas }} </td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+ 
+</html>
