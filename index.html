@@ -70,7 +70,34 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
 </script>
     
     
-    
+    <body ng-app="persModul">
+<div ng-controller="persController">
+<div>
+<input type="text" ng-model="arama.isim" placeholder="İsim Girin">
+<input type="text" ng-model="arama.cinsiyet" placeholder="Cinsiyet Girin">
+<input type="checkbox" ng-model="tamEslestir" >Tam Eşleştir
+</div>
+ 
+<table border=1>
+<thead>
+<tr>
+<th>İSİM</th>
+<th>SOYİSİM</th>
+<th>TARİH</th>
+<th>MAAŞ</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="personel in personeller |filter:arama:tamEslestir ">
+<td> {{ personel.isim }} </td>
+<td> {{ personel.soyisim }} </td>
+<td> {{ personel.cinsiyet }} </td>
+<td> {{ personel.maas }} </td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
     
 <script>
  
@@ -103,33 +130,6 @@ $scope.personeller = personeller;
 </script>
     
 
-<body ng-app="persModul">
-<div ng-controller="persController">
-<div>
-<input type="text" ng-model="arama.isim" placeholder="İsim Girin">
-<input type="text" ng-model="arama.cinsiyet" placeholder="Cinsiyet Girin">
-<input type="checkbox" ng-model="tamEslestir" >Tam Eşleştir
-</div>
- 
-<table border=1>
-<thead>
-<tr>
-<th>İSİM</th>
-<th>SOYİSİM</th>
-<th>TARİH</th>
-<th>MAAŞ</th>
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat="personel in personeller |filter:arama:tamEslestir ">
-<td> {{ personel.isim }} </td>
-<td> {{ personel.soyisim }} </td>
-<td> {{ personel.cinsiyet }} </td>
-<td> {{ personel.maas }} </td>
-</tr>
-</tbody>
-</table>
-</div>
-</body>
+
  
 </html>
