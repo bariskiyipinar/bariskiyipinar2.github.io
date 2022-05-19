@@ -4,14 +4,17 @@
     
 <meta charset="utf-8"> 
  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" >
+
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    
+
+    <!--Angular Js Kütüphanesi-->
       <link rel="stylesheet" href="tasarim.css">
         <script src="angular.min.js"></script>
         <script src="angular-file-upload.js"></script>
         <script src="controllers.js"></script>
     </head>
-    
+
+    <!--AngularJs Kütüphanesi-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script>
 var myApp = angular.module('myApp', []);
@@ -58,6 +61,7 @@ console.log(data);
 }
 }]);
 
+//upload.php dosyasını oluşturmayı unutmayın.
 myApp.controller('myCtrl', ['$scope', 'dosyaYukle', function($scope, fileUpload){
 $scope.dosyaYukleyici = function(){
 var file = $scope.dosya;
@@ -69,7 +73,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
  
 </script>
     
-    
+    <!--Sayfanın Style Kısmı-->
     
     
     <style>
@@ -87,14 +91,11 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
     
     
     
-    
+    <!--Sayfanın Başlığı-->
     
     <body>
         
         <h1><font color="black" size="7" face="Perpetua">ANGULARJS İLE ARAMA FİLTRESİ YAPIMI</font></h1>
-     
-        
-   
         
     </body>
     
@@ -104,15 +105,15 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
     
     <!--//Eklemeli Tablo kısmı :)-->
     
-    
 <html lang="tr">
 <head>
- 
+ <!---->
   <style>
     #sayfa{
       width: 500px;
       margin:auto;
       padding:20px;
+       
     }
     label{
       display:block;
@@ -122,6 +123,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
       width: 200px;
       height: 25px;
       font-size:1.2em;
+       margin-left: 5px;
     }
     button{
       border:none;
@@ -131,12 +133,13 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
       height: 50px;
       text-align: center;
       font-size:1.2em;
+      
     }
     table{
-      background: #0984e3;
-      margin:5px;
-      width: 100%;
-      color:#fff;
+      background:lightblue;
+      margin:10px;
+      width: 80%;
+      color:black;
     }
     td,th{
       border:1px solid white;
@@ -186,20 +189,20 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
      //TR Yİ OLUŞTURDUM
       let tr=document.createElement("tr");
  
-      //tdleri tr içine ekledim
+      //tdleri tr içine ekliyoruz
       tr.appendChild(tAd);
       tr.appendChild(tSoyad);
       tr.appendChild(tYas);
  
-      //tr elementini liste (tablo) içine ekledim
+      //tr elementini liste (tablo) içine ekliyoruz
       liste.appendChild(tr);
  
-      //nesnelerin için eklemeden sonra temizleyelim
+      //nenelerin için eklemeden sonra temizleyelim
       ad.value="";
       soyad.value="";
       yas.value="";
  
-      //temizlemeden sonra ad içine odaklama
+      //temizlemeden sonra ad içine odaklansın
       ad.focus();
     }
  
@@ -212,7 +215,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
     
     
     
- <!--Eklemesiz Tablo Body kısmı:)-->
+    <!--Eklemesiz Tablo Body kısmı:)-->
     
     <body ng-app="persModul">
         
@@ -247,7 +250,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
 </body>
     
   
-      <!--Eklemesiz Tablo script kısmı :)-->
+     <!--Eklemesiz Tablo script kısmı :)-->
     
 <script>
  
