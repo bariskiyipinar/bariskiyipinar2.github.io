@@ -86,26 +86,27 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
     </style>
     
     
+    
+    
+    
     <body>
         
         <h1><font color="black" size="7" face="Perpetua">ANGULARJS İLE ARAMA FİLTRESİ YAPIMI</font></h1>
         
         
-        
-        
-        
+   
         
     </body>
     
     
     
-    <!DOCTYPE html>
+    
+    
+    //Eklemeli Tablo kısmı :)
+    
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Tasarım Kodlama</title>
+ 
   <style>
     #sayfa{
       width: 500px;
@@ -142,7 +143,9 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
       margin: 0px;
     }
   </style>
+    
 </head>
+    
 <body>
   <div id="sayfa">
     <label>Ad:</label>    <input type="text"  id="ad">
@@ -158,27 +161,28 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
   </table>
   </div>
     
- 
+ //Eklemeli Tablo Script Kısmı :)
+    
   <script>
     const ad=document.querySelector("#ad");
     const soyad=document.querySelector("#soyad");
     const yas=document.querySelector("#yas");
-    const ekle=document.querySelector("#ekle");//tıklama olayı eklenecek
+    const ekle=document.querySelector("#ekle");
     const liste=document.querySelector("#liste");
  
     ekle.onclick=function(){
-      //butona tıklanınca çalıştırılacak
+     
       
-      //td elementlerini oluşturuyoruz
+     
       let tAd=document.createElement("td");
       let tSoyad=document.createElement("td");
       let tYas=document.createElement("td");
  
-      tAd.textContent=ad.value;//textboxtan değeri okuyup aktarıyoruz.
-      tSoyad.textContent=soyad.value;//textboxtan değeri okuyup aktarıyoruz.
-      tYas.textContent=yas.value;//textboxtan değeri okuyup aktarıyoruz.
+      tAd.textContent=ad.value;//textboxtan değeri okuyup aktardım.
+      tSoyad.textContent=soyad.value;//textboxtan değeri okuyup aktardım.
+      tYas.textContent=yas.value;//textboxtan değeri okuyup aktardım.
  
-      //tr elementi oluşturuyoruz
+     //TR Yİ OLUŞTURDUM
       let tr=document.createElement("tr");
  
       //tdleri tr içine ekliyoruz
@@ -207,7 +211,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
     
     
     
-    
+    //Eklemesiz Tablo Body kısmı:)
     
     <body ng-app="persModul">
         
@@ -242,6 +246,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
 </body>
     
   
+    //Eklemesiz Tablo script kısmı :)
     
 <script>
  
@@ -250,22 +255,15 @@ var app = angular
 .controller("persController", function ($scope) {
  
 var personeller=[
-{ "isim": "Yezdan","soyisim": "Erdurak","cinsiyet": "Erkek","maas": "3569" },
-{ "isim": "Elfiye","soyisim": "Şencin","cinsiyet": "Erkek","maas": "4143" },
-{ "isim": "Ezfer","soyisim": "Ovacık","cinsiyet": "Erkek","maas": "2705" },
-{ "isim": "Teberhun","soyisim": "Karadağ sazak","cinsiyet": "Kız","maas": "2337" },
-{ "isim": "Çağar","soyisim": "Alkan","cinsiyet": "Kız","maas": "1883" },
-{ "isim": "Mükafi","soyisim": "Düşer","cinsiyet": "Kız","maas": "3869" },
-{ "isim": "Süreha","soyisim": "Karakaya","cinsiyet": "Erkek","maas": "1796" },
-{ "isim": "Taberi","soyisim": "Abacılı","cinsiyet": "Kız","maas": "4054" },
-{ "isim": "Bala","soyisim": "Merkan","cinsiyet": "Erkek","maas": "2703" },
-{ "isim": "Nil","soyisim": "Aksaç","cinsiyet": "Erkek","maas": "3510" },
-{ "isim": "Ulualp","soyisim": "Seziş","cinsiyet": "Erkek","maas": "2688" },
-{ "isim": "Çağlar","soyisim": "Selçuk atay","cinsiyet": "Erkek","maas": "3524" },
-{ "isim": "Berkem","soyisim": "Erdoğan","cinsiyet": "Kız","maas": "2290" },
-{ "isim": "Özgünel","soyisim": "Demirtaş","cinsiyet": "Erkek","maas": "3193" },
-{ "isim": "Mübelliğ","soyisim": "Ölçer","cinsiyet": "Kız","maas": "3603" }
- 
+{ "isim": "Barış","soyisim": "Kıyıpınar","cinsiyet": "Erkek","maas": "3569" },
+{ "isim": "Elif","soyisim": "Gül","cinsiyet": "Kız","maas": "4143" },
+{ "isim": "Ali","soyisim": "Karadağ","cinsiyet": "Erkek","maas": "2705" },
+{ "isim": "Şeyma","soyisim": "Karadağ ","cinsiyet": "Kız","maas": "2337" },
+{ "isim": "Çağlar","soyisim": "Alkan","cinsiyet": "Erkek","maas": "1883" },
+{ "isim": "Mustafa","soyisim": "Düşer","cinsiyet": "Erkek","maas": "3869" },
+{ "isim": "Süreyya","soyisim": "Karakaya","cinsiyet": "Kız","maas": "1796" },
+{ "isim": "Osman","soyisim": "Abacılı","cinsiyet": "Erkek","maas": "4054" },
+{ "isim": "Fatma","soyisim": "Şafak","cinsiyet": "Kız","maas": "2703" },
 ];
  
 $scope.personeller = personeller;
