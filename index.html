@@ -57,7 +57,7 @@ console.log(data);
 } 
 }
 }]);
-//upload.php dosyasını oluşturmayı unutmayın.
+
 myApp.controller('myCtrl', ['$scope', 'dosyaYukle', function($scope, fileUpload){
 $scope.dosyaYukleyici = function(){
 var file = $scope.dosya;
@@ -102,7 +102,8 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
     
     
     
-    //Eklemeli Tablo kısmı :)
+    <!--//Eklemeli Tablo kısmı :)-->
+    
     
 <html lang="tr">
 <head>
@@ -161,7 +162,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
   </table>
   </div>
     
- //Eklemeli Tablo Script Kısmı :)
+ <!--//Eklemeli Tablo Script Kısmı :)-->
     
   <script>
     const ad=document.querySelector("#ad");
@@ -185,20 +186,20 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
      //TR Yİ OLUŞTURDUM
       let tr=document.createElement("tr");
  
-      //tdleri tr içine ekliyoruz
+      //tdleri tr içine ekledim
       tr.appendChild(tAd);
       tr.appendChild(tSoyad);
       tr.appendChild(tYas);
  
-      //tr elementini liste (tablo) içine ekliyoruz
+      //tr elementini liste (tablo) içine ekledim
       liste.appendChild(tr);
  
-      //nenelerin için eklemeden sonra temizleyelim
+      //nesnelerin için eklemeden sonra temizleyelim
       ad.value="";
       soyad.value="";
       yas.value="";
  
-      //temizlemeden sonra ad içine odaklansın
+      //temizlemeden sonra ad içine odaklama
       ad.focus();
     }
  
@@ -211,7 +212,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
     
     
     
-    //Eklemesiz Tablo Body kısmı:)
+ <!--Eklemesiz Tablo Body kısmı:)-->
     
     <body ng-app="persModul">
         
@@ -246,7 +247,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
 </body>
     
   
-    //Eklemesiz Tablo script kısmı :)
+      <!--Eklemesiz Tablo script kısmı :)-->
     
 <script>
  
